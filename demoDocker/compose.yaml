@@ -1,0 +1,15 @@
+services:
+  nginx-web:
+    image: nginx
+    volumes:
+      - ./app:/usr/share/nginx/html:ro
+    ports:
+      - "81:80"
+
+  node-web:
+    image: node:18
+    volumes:
+      - ./node-app:/usr/src/node-app
+    ports:
+      - "81:9000"
+    command: sh -c " chmod +x /usr/src/node-app/startup.sh && /usr/src/node-app/startup.sh"
