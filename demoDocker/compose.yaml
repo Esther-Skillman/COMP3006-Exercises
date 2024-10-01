@@ -1,14 +1,9 @@
 services:
-<<<<<<< HEAD
   nginx-web:
-=======
-  web:
->>>>>>> origin/main
     image: nginx
     volumes:
       - ./app:/usr/share/nginx/html:ro
     ports:
-<<<<<<< HEAD
       - "81:80"
 
   node-web:
@@ -18,6 +13,3 @@ services:
     ports:
       - "81:9000"
     command: sh -c " chmod +x /usr/src/node-app/startup.sh && /usr/src/node-app/startup.sh"
-=======
-      - "81:80"
->>>>>>> origin/main
