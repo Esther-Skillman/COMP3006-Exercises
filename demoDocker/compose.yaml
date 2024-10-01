@@ -2,14 +2,14 @@ services:
   nginx-web:
     image: nginx
     volumes:
-      - ./app:/usr/share/nginx/html:ro
+      - ./frontend-nginx-app:/usr/share/nginx/html:ro
     ports:
       - "81:80"
 
   node-web:
-    image: node:18
+    image: node:21
     volumes:
-      - ./node-app:/usr/src/node-app
+      - ./backend-node-app:/usr/src/backend-node-app
     ports:
-      - "81:9000"
-    command: sh -c " chmod +x /usr/src/node-app/startup.sh && /usr/src/node-app/startup.sh"
+      - "82:9000"
+    command: sh -c " chmod +x /usr/src/backend-node-app/startup.sh && /usr/src/backend-node-app/startup.sh"
