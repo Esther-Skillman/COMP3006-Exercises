@@ -1,15 +1,15 @@
 services:
-  nginx-web:
-    image: nginx
-    volumes:
-      - ./frontend-nginx-app:/usr/share/nginx/html:ro
-    ports:
-      - "81:80"
+    nginx-web:
+      image: nginx
+      volumes:
+        - ./frontend-nginx-app:/usr/share/nginx/html:ro
+      ports:
+        - "81:80"
 
-  node-web:
-    image: node:21
-    volumes:
-      - ./backend-node-app:/usr/src/backend-node-app
-    ports:
-      - "82:9000"
-    command: sh -c " chmod +x /usr/src/backend-node-app/startup.sh && /usr/src/backend-node-app/startup.sh"
+    node-web:
+      image: node:21
+      volumes:
+        - ./backend-node-app:/usr/src/backend-node-app
+      ports:
+        - "82:9000"
+      command: sh -c " chmod +x /usr/src/backend-node-app/startup.sh && /usr/src/backend-node-app/startup.sh"
